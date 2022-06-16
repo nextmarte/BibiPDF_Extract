@@ -17,13 +17,19 @@ article <- lapply(article_path, pdf_text)
 #convert to chr class
 article <- as.character(article)
 
-eoa<-"fim do artigo"
+article
 
+#adding a string identifier at the end of the main string
+eoa<-"final do artigo"
 article <-str_c(article,eoa)
 
 
+str_trim(str_extract(article,"^((?:.+?, .+?;)*?"))
+
+article 
+#function to find the beginning of the reference data
 get_data <- function(dat) {
-  list(Ref = str_trim(str_extract(dat, "(?<=Referências:)(?s)(.*?)(?=fim do artigo)"))
+  list(Ref = str_trim(str_extract(dat, "(?<=Referências)(?s)(.*?)(?=\n\n\n\)"))
   )
 }
 
